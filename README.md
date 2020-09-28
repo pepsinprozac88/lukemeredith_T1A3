@@ -1,2 +1,17 @@
-# lukemeredith_T1A3
- Termional App Assignment
+# Assignment 3 - Terminal App
+
+
+## R1
+n/a
+
+## R2
+n/a
+
+## R3
+what?
+
+## R4 - Link to Repository
+
+
+## R5 - Software Development Plan
+
