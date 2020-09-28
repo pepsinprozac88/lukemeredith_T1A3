@@ -57,6 +57,7 @@ loop do
       date = Date.today
       content = "Date: #{date}" + "\n" + "Title: #{filename}" + "\n\n" + gets.chomp.to_s
       create(filename, content)
+      
       puts "\n"
       puts "Note created!"
    else
