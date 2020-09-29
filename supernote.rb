@@ -1,7 +1,9 @@
 require 'date'
 require 'pastel'
 require 'tty-prompt'
+# require 'tty-reader'
 
+# reader = TTY::Reader.new
 prompt = TTY::Prompt.new(active_color: :yellow)
 pastel = Pastel.new
 
@@ -71,18 +73,19 @@ loop do
          puts "\n"
          filename = gets.chomp.to_s.gsub(" ", "_").downcase
          filename = filename + ".txt"
-         if File.exists?(filename) == false
+         if File.exists?(filename) == false && filename != ".txt"
             puts "\n"
             line()
-            puts pastel.yellow("\nNow add something to " + "#{filename}:")
+            puts pastel.yellow("\nNow add something to " + pastel.underline("#{filename}:"))
+            puts pastel.yellow("(NOTE: Your note can be mulitined. When finished, press 'Enter' three times)")
             puts "\n"
-            date = Date.today
-            content = "Title: #{filename}" + "\nDate: #{date}" + "\n\n" + gets.chomp.to_s
+            date = Date.today          
+            content = "Title: #{filename}" + "\nDate: #{date}" + "\n\n" + gets("\n\n\n").chomp.to_s
             create(filename, content)
-            puts pastel.bright_green("\nNote created!")
+            puts pastel.bright_green.bold("\nNote created!")
             puts "\n"
             choose2nd = %w(Back)
-            choice2nd = prompt.select("Go Back?", choose2nd).to_s         
+            choice2nd = prompt.select("Go Back?", choose2nd).to_s
                case choice2nd
                when "Back"
                   puts "\n"
@@ -92,7 +95,7 @@ loop do
                end
          else 
             puts "\n"
-            puts pastel.red("Hey man. So, bad news, this note title already exists...")
+            puts pastel.red.bold("Yeah, um, you can't use the title " + pastel.yellow.underline("#{filename}") + " because it's either in-use or invalid.")
          end
       
       when "Read"
@@ -109,16 +112,16 @@ loop do
                puts "\n"
                read(filename)
                line()
-                  choose2nd = %w(Back)
-                  choice2nd = prompt.select("Go Back?", choose2nd).to_s         
-                  case choice2nd
-                  when "Back"
-                     puts "\n"
-                     title()
-                     break                 
-                  else 
-                     puts pastel.red("Error!")
-                  end
+               choose2nd = %w(Back)
+               choice2nd = prompt.select("Go Back?", choose2nd).to_s         
+               case choice2nd
+               when "Back"
+                  puts "\n"
+                  title()
+                  break                 
+               else 
+                  puts pastel.red("Error!")
+               end
             else
                puts pastel.red.bold("\nYo, that note doesn't exist...")
                break
@@ -134,7 +137,7 @@ loop do
          filename = filename + ".txt"
             if File.exists?(filename) == true
                File.delete(filename)
-               puts pastel.red("\nNote deleted!")
+               puts pastel.red.bold("\nNote deleted!")
                line()
                choose2nd = %w(Back)
                choice2nd = prompt.select("Go Back?", choose2nd).to_s         
@@ -146,7 +149,8 @@ loop do
                   puts pastel.red("Error!")
                end
             else
-               puts pastel.red.bold("Bruh, you can't delete it if it doesn't exist...")
+               puts pastel.red.bold("\nBruh, you can't delete it if it doesn't exist...")
+               puts "\n"
                choose2nd = %w(Back)
                choice2nd = prompt.select("Go Back?", choose2nd).to_s         
                case choice2nd
@@ -157,13 +161,14 @@ loop do
                   puts pastel.red("Error!")
                end
             end
+
       when "Exit"
          puts "\n"
-         puts pastel.yellow("\nHave a SUPER day!")
+         puts pastel.bright_green.bold("\nHave a SUPER day!")
          puts "\n"
          break
       
       else
-         puts pastel.red("\nYo, that's not a valid choice. Try again...?")
+         puts pastel.red.bold("\nYo, that's not a valid choice. Try again...?")
       end
 end
