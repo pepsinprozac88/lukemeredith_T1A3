@@ -122,44 +122,37 @@ loop do
          instructions("read", "Read")
          filename = gets.chomp.to_s.gsub(" ", "_").downcase
          filename = filename + ".txt"
-         loop do
             if File.exists?(filename) == true
                line()
                puts "\n"
                read(filename)
                line()
-               choose2nd = %w(Back)
-               choice2nd = prompt.select("Go Back?", choose2nd).to_s         
-               case choice2nd
-               when "Back"
-                  break                 
-               else 
-                  puts pastel.red("Error!")
-               end
+               back()
             else
                puts pastel.red.bold("Hey man, so, that note doesn't actually exist...")
                line()
-               choose2nd = %w(Back)
-               choice2nd = prompt.select("Go Back?", choose2nd).to_s         
-               case choice2nd
-               when "Back"
-                  puts "\n"          
-               else 
-                  puts pastel.red("Error!")
-               end
-               break
+               back()
             end  
-         end
 
       when "𝐃𝐞𝐥𝐞𝐭𝐞"
          instructions("delete", "Delete")
          filename = gets.chomp.to_s.gsub(" ", "_").downcase
          filename = filename + ".txt"
-            if File.exists?(filename) == true
-               File.delete(filename)
-               puts pastel.red.bold("\nNote deleted!")
-               line()
-               back()
+         if File.exists?(filename) == true
+            puts "\n"
+            choose3 = %w(Yes Cancel)
+            choice3 = prompt.select("Are you sure you want to delete this note?", choose3).to_s
+            case choice3
+               when "Yes"
+                  File.delete(filename)
+                  puts pastel.red.bold("\nNote deleted!")
+                  line()
+                  back()
+               else "No"
+                  puts pastel.bright_green.bold("\nCancelled.")
+                  puts "\n"
+                  back()
+               end
             else
                puts pastel.red.bold("Bruh, you can't delete it if it doesn't exist...")
                back()
