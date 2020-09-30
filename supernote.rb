@@ -111,18 +111,11 @@ loop do
             create(filename, content)
             puts pastel.bright_green.bold("\nNote created!")
             puts "\n"
+            back()
          else 
             puts "\n"
             puts pastel.red.bold("Yeah, um, you can't use the title " + pastel.yellow.underline("#{filename}") + " because it's either in-use or invalid.")
-            puts "\n"
-            choose2nd = %w(Back)
-            choice2nd = prompt.select("Go Back?", choose2nd).to_s
-               case choice2nd
-               when "Back"
-                  puts "\n"      
-               else 
-                  puts pastel.red("Error!")
-               end
+            back()
          end
       
       when "𝐑ead"
@@ -139,13 +132,12 @@ loop do
                choice2nd = prompt.select("Go Back?", choose2nd).to_s         
                case choice2nd
                when "Back"
-                  puts "\n"
                   break                 
                else 
                   puts pastel.red("Error!")
                end
             else
-               puts pastel.red.bold("\nYo, that note doesn't exist...")
+               puts pastel.red.bold("Hey man, so, that note doesn't actually exist...")
                line()
                choose2nd = %w(Back)
                choice2nd = prompt.select("Go Back?", choose2nd).to_s         
@@ -167,25 +159,10 @@ loop do
                File.delete(filename)
                puts pastel.red.bold("\nNote deleted!")
                line()
-               choose2nd = %w(Back)
-               choice2nd = prompt.select("Go Back?", choose2nd).to_s         
-               case choice2nd
-               when "Back"
-                  puts "\n"              
-               else 
-                  puts pastel.red("Error!")
-               end
+               back()
             else
-               puts pastel.red.bold("\nBruh, you can't delete it if it doesn't exist...")
-               puts "\n"
-               choose2nd = %w(Back)
-               choice2nd = prompt.select("Go Back?", choose2nd).to_s         
-               case choice2nd
-               when "Back"
-                  puts "\n"               
-               else 
-                  puts pastel.red("Error!")
-               end
+               puts pastel.red.bold("Bruh, you can't delete it if it doesn't exist...")
+               back()
             end
 
       when "𝐀𝐩𝐩𝐞𝐧𝐝"
@@ -193,21 +170,27 @@ loop do
          filename = gets.chomp.to_s.gsub(" ", "_").downcase
          filename = filename + ".txt"
          if File.exists?(filename) == true
+            line()
+            puts "\n"
             read(filename)
-            add_text = gets("\n\n\n").chomp.to_s
+            puts pastel.yellow("Add to your note here. When finished, press 'Enter' three times.")
+            puts pastel.yellow("(NOTE: Your note can be mulitined. When finished, press 'Enter' three times)")
+            puts "\n"
+            add_text = gets("\n\n\n").to_s
             File.write(filename, add_text, File.size(filename), mode: 'a')
+            back()
          else
             puts pastel.red.bold("\nBruh, you can't append it if it doesn't exist...")
             back()
          end
 
       when "𝐄𝐱𝐢𝐭"
-         puts "\n"
-         puts pastel.bright_green.bold("\nHave a SUPER day!")
+         system('clear')
+         puts pastel.yellow("\nHave a SUPER day!")
          puts "\n"
          break
       
       else
-         puts pastel.red.bold("\nYo, that's not a valid choice. Try again...?")
+         puts pastel.red.bold("\nError! Error! I dont' know how you got here, but you're not supposed to be here...")
       end
 end
