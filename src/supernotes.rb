@@ -1,6 +1,5 @@
 begin # opening for rescue error messasge (Although, there are NO errors.)
 
-
 require_relative './methods.rb'
 require_relative './title.rb'
 require 'date'
@@ -9,13 +8,6 @@ require 'tty-prompt'
 
 prompt = TTY::Prompt.new(active_color: :yellow)
 pastel = Pastel.new
-
-
-
-
-
-
-# Program runs from here onwards:
 
 loop do
 
@@ -44,7 +36,7 @@ loop do
          if File.exists?(filename) == false && filename != ".txt"
             puts "\n"
             line()
-            puts pastel.yellow("\nNow add something to " + pastel.underline("#{filename}:"))
+            puts pastel.yellow("\nNow add something to " + pastel.white.underline("#{filename}:"))
             puts pastel.yellow("(NOTE: Your note can be mulitined. When finished, press 'Enter' three times)")
             puts "\n"
             date = Date.today          
@@ -128,8 +120,8 @@ loop do
       else
          puts pastel.red.bold("\nError! You broke me! Ahhhh! How did you break me? I'm error proof! AHHHHHHHHHHHHH!")
       end
-end
+   end
 
 rescue 
-   puts "Error! You broke me! Ahhhh! How did you break me? I'm error proof! AHHHHHHHHHHHHH!\nTry restarting the program.\nIf that fails, you may have to uninstall/reinstall Supernotes using the HELP document.\nYou can find this document in the Supernotes directory on your computer."
+   puts "Error! You broke me! Ahhhh! How did you break me? I'm error proof! AHHHHHHHHHHHHH!\nTry restarting the program.\nIf that fails, you may have to uninstall/reinstall Supernotes using the HELP document.\nYou can find this by running 'supernote.rb --help' in the command line,\nor find the pdf document in the Supernotes directory on your computer."
 end
