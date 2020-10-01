@@ -1,3 +1,7 @@
+begin # opening for rescue error messasge (Although, there are NO errors.)
+
+   
+
 require 'date'
 require 'pastel'
 require 'tty-prompt'
@@ -171,6 +175,7 @@ loop do
             puts "\n"
             add_text = gets("\n\n\n").to_s
             File.write(filename, add_text, File.size(filename), mode: 'a')
+            puts pastel.bright_green.bold("\nNote updated!")
             back()
          else
             puts pastel.red.bold("\nBruh, you can't append it if it doesn't exist...")
@@ -184,6 +189,10 @@ loop do
          break
       
       else
-         puts pastel.red.bold("\nError! Error! I dont' know how you got here, but you're not supposed to be here...")
+         puts pastel.red.bold("\nError! You broke me! Ahhhh! How did you break me? I'm error proof! AHHHHHHHHHHHHH!")
       end
+end
+
+rescue 
+   puts "Error! You broke me! Ahhhh! How did you break me? I'm error proof! AHHHHHHHHHHHHH!\nTry restarting the program.\nIf that fails, you may have to uninstall/reinstall Supernotes using the HELP document.\nYou can find this document in the Supernotes directory on your computer."
 end

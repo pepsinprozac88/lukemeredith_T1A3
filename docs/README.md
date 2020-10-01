@@ -5,17 +5,14 @@
 
 # Software Development Plan
 
-My application, SuperNotes, is a terminal application designed to do three things: take notes, read those note, and delete those notes if necessary. SuperNote takes input from a user in the form of a note title and note content, then opens a text file and saves the user's input (the note heading and content) to the text file along with the date which the note was created. The user can also use SuperNotes to look through a list of their created notes, or search for them by name, and either edit the note or delete the note. Basically, SuperNote is super basic. But it works, and it's super. It will solve all the client's note taking needs; even though there are hundreds of other note-taking apps on the market, you can rest assured that none of them take a note as SUPERbly as SuperNotes! The target audience for this program is anyone who wants to jump in on the fast-paced and always-expanding world of note-taking. From office workers to soccer-mums, if you need to take a note, we got the app for you!
+- My application, SuperNotes, is a terminal application designed to do three things: take notes, read those note, and delete those notes if necessary. SuperNote takes input from a user in the form of a note title and note content, then opens a text file and saves the user's input (the note heading and content) to the text file along with the date which the note was created. The user can also use SuperNotes to look through a list of their created notes, or search for them by name, and either edit the note or delete the note. Basically, SuperNote is super basic. But it works, and it's super. 
+- It will solve all the client's note taking needs; even though there are hundreds of other note-taking apps on the market, you can rest assured that none of them take a note as SUPERbly as SuperNote!
+- The target audience is anyone who wants to jump in on the fast-paced and always-expanding world of note-taking. From office workers to soccer-mums, if you need to take a note, we got the app for you!
+- I could explain how to use it here, under the Requirement 5 heading as asked, but I feel like that's a bit silly as Requirement 10 asks for the same thing, and I don't want to repeat myself. I got things to do. 
 
-The app is extrememly user friendly; the UI is quite bland (it's a terminal app, after all...), utilizing only the up/down arrow keys to navigate short menus, and simple, clear instructions on every page and before every menu option, making sure the user is never lost or confused as how to use it. 
+# FEATURES OF SUPERNOTES
 
-I could explain how to use it here, under the Requirement 5 heading as asked, but I feel like the requirement headings are more of a guideline, and it'd be a bit silly as Requirement 10 asks for the same thing, and I don't want to repeat myself. I got things to do. 
-
-
-## FEATURES OF SUPERNOTES
-
-### Feature 1 - TTY PROMPT arrow-key Menus 
-*(defined on line 89 of supernote.rb)*
+## Feature 1 - TTY PROMPT arrow key Menus
 
 Using the ruby gem tty-prompt, Supernote will have a simply UI, utilizing the gem's code in order to add an options menu as a front-page, where the user will be able to choose to read notes, create a new note, delete a note, append an existing note, or else exit the program. the code is as follows:
 ```ruby
@@ -25,8 +22,7 @@ choice = prompt.select("What would you like to do?", choose).to_s
 followed by a case statement encompassing the control flow of the program and its input and output. 
 
 
-### Feature 2 - Create New Note
-*(method defined on line 14, usage in code block begins on line 93 of supernote.rb)*
+## Feature 2 - Create New Note
 
 The first and most essential feature of SuperNote is it's ability to create a new note. The program asks for the title and stores it in the variable *filename*. The title can be multiple words and does not need a file extension added as the program does all of this automatically using `filename = gets.chomp.gsub(" ", "_").to_s.downcase + ".txt"`. It alos automatically adds the date of the note's creation to the note using the class/method `Date.today`, then lastly prompts for note content, which can be multilined, as input stored in the variable *content* i.e. `content = gets(\n\n\n).chomp`. A text file is then created in a local directory using the following method/class:
 ```ruby
@@ -39,9 +35,7 @@ end
 **Error-handling:** If the note title is already in use or left blank (which uses an if/else statement and the logical operator `File.exists?(filename) == false && filename != ".txt"`) to search the directory), the app will tell the user that the title is either already in-use or invalid, respectively. This is the first instance of error handling in SuperNotes. 
 
 
-### Feature 2 - Read Your Notes
-*(**read** method defined on line 8, usage in code block begins on line 121 of supernote.rb)*
-*(list method, called **instructions**, defined on line 8, usage in code block begins on line 121 of supernote.rb)*
+## Feature 2 - Read Your Notes
 
 The second feature is the ability to list and read your notes. Again, the user chooses the option 'Read' from the menu, which lists all available notes with `puts Dir.glob("*.txt")`. The user can then input the name of the note they wish to read - using the same method stated above - which retrieves the note, along with its title and creation date, and prints it all back to the screen. This is accomplished using the method/class/iterator:
 ```ruby
@@ -54,8 +48,7 @@ end
 **Error-handling:** When inputting the note title, the program uses an if/else statement to determine if the note title exists (using `if File.exists?(filename) == true` #code to read). If the user input does not match an existing note title, the user will recieve an error message stating that the note does not exist (i.e `else` #error message)
 
 
-### Feature 3  - Append Your Notes
-*(usage in code begins on line 161 of supernote.rb)*
+## Feature 3  - Append Your Notes
 
 The third feature was originally supposed to allow the user to fully edit existing notes in-app. But I couldn't figure out how to accomplish this and instead went with the option to simply add to exisiting notes. Supernote allows the user to append notes under the 'Append' option on the main page. Using the same list and input-to-open methods mention previously, the user is given a list of existing notes and can input the title to 'open' its contents, which can then be appened. The program does this using the following code:
 ```ruby
@@ -69,7 +62,6 @@ The third feature was originally supposed to allow the user to fully edit existi
 
 
 ### Feature 4 - Delete Unwanted Notes
-*(usage in code begins on line 137 of supernote.rb)*
 
 The final feature of SuperNote is the ability to list all existing notes, search by name and delete them from the list. This permanantly deletes the notes (as in, the note is removed from the SuperNotes app *and* its associated text file is deleted from the local directory). Again, the user is given a list of existing notes and is prompted for the title of the note they wish to delete (using the same `filename =` method as outlined previously). If the note exists (using the `File.exists?(filename)` class/method as stated previously), the user is promted one last time using a tty-prompt and another case statement to ask: "Are you sure you want to delete this note?". This is an added safety measure to ensure the user won't accidentally delete the wrong note. When the user chooses "Yes", the note is deleted using the class/method `File.delete(filename)` and the message "Note Deleted" is printed in red text to the screen. Here is the functional code, sans fancy UI stuff:
 ```ruby
@@ -85,13 +77,10 @@ if File.exists?(filename) == true
       end
 ```
 
-
-## Implementation Plan
-
-Control flow diagram: ![diagram](./docs/diagram.jpg)
+# Implementation Plan
 
 As this is a small, one-person terminal app, I designed my implementation plan around a simple to-do list, as follows:
-(Note: tasks are marked as *done* using `X`)
+(Note: tasks are marked as done using `X`)
 
 #### Design:
 - ASCII art heading for title page (possible name: 'SuperNotes' ?) `X`
@@ -122,7 +111,7 @@ As this is a small, one-person terminal app, I designed my implementation plan a
    - Keep the app running via control flow (loops?) until such time as the user wishes to exit the app manually `X`
 
 #### Error Handling
-I have ensured the app throws no errors or crashes by using 'if/else' statements and 'case' statements to control *if* the program can perfom a specific action, *else* the user receives a custom error message. I have also wrapped the entire program in a 'rescue' statement as a failsafe. These scenarios are outline below:
+Ensure the app throws no errors or crashes by using 'if/else' statements and 'case' statements to control if the program can perfom a specific action, else the user receives a custom error message. These scenarios are outline below:
 
 1. **New Note**
 - The user cannot create a note without a title, else they recieve a custom error message `X`
@@ -146,6 +135,4 @@ I have ensured the app throws no errors or crashes by using 'if/else' statements
 - The program will exit gracefully, without error - coded to be the only option `X`
 6. **Menu**
 - The user cannot select an invalid option from the main menu. There will be *no* invalid options to choose from `X`
-- In the extremely unlikely event of user choice not matching the `case` statement that the 'tty-prompt' menu is built upon, the user will recieve a custom error message `X`
-7. **Failsafe 'rescue' Message**
-- In the unlikely event of an exception, the rescue statement will print instructions to the screen asking the user to either restart the program, or else refer to the HELP document in the Supernotes directory on their computer for a possible reinstall.
+- In the extremely unlikely event of user choice not matching the `case` statement that the tty-prompt menu is built upon, the user will recieve a custom error message `X`
