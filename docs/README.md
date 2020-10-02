@@ -41,7 +41,13 @@ If you wish, you can retrieve the actual text file version of your note for use 
 
 Honestly, there's not much to the Supernotes app; there are no known errors, and all known user-related errors are addressed in app with instructions as to why the user may have recieved said error. If the app does freeze, the user can use Ctr-Z or Ctr-C to force-close the program, and restart it using the method stated previously. If the issue persists, try uninstalling and reinstalling the program as per the instruction above, or else feel free to contact me with questions or issues through my GitHub page. The link is at the top of the page.
 
-**ARGV / Command line Arguments**
+
+# Software Development 
+
+## FEATURES OF SUPERNOTES
+
+### Command Line Arguments
+*(defined in help.rb)*
 
 For CLI help, use the terminal to navigate to the SuperNotes **/src** directory and type the following (without quotation marks): 'ruby supernotes.rb', then a space, before adding one of the following flags:
 
@@ -52,23 +58,21 @@ For CLI help, use the terminal to navigate to the SuperNotes **/src** directory 
    -v              show version information
    -version        show version information
 
+![ARGV](./ARGV_code.jpg)
 
-# Software Development 
 
-## FEATURES OF SUPERNOTES
-
-### Feature 1 - TTY PROMPT arrow-key Menus 
-*(defined on line 23 of supernote.rb)*
+### TTY PROMPT arrow-key Menus 
+*(defined on line 23 of supernotes.rb)*
 
 Using the ruby gem tty-prompt, Supernote will have a simply UI, utilizing the gem's code in order to add an options menu as a front-page, where the user will be able to choose to read notes, create a new note, delete a note, append an existing note, or else exit the program. The code for the navigation menu is as follows:
 ```ruby
 choose = %w(𝐑ead 𝐍ew 𝐃𝐞𝐥𝐞𝐭𝐞 𝐀𝐩𝐩𝐞𝐧𝐝 𝐄𝐱𝐢𝐭)
 choice = prompt.select("What would you like to do?", choose).to_s
 ```
-followed by a case statement encompassing the control flow of the program and its input and output. 
+followed by a `case` statement encompassing the control flow of the program via the options mentioned above.
 
 
-### Feature 2 - Create New Note
+### Function - Create New Note
 *(method defined on line 7 of methods.rb, usage in code block begins on line 27 of supernotes.rb)*
 
 The first and most essential feature of SuperNote is it's ability to create a new note. The program asks for the title and stores it in the variable *filename*. The title can be multiple words and does not need a file extension added as the program does all of this automatically using `filename = gets.chomp.gsub(" ", "_").to_s.downcase + ".txt"`. It also automatically adds the date of the note's creation to the note using the class/method `Date.today`, then lastly prompts for note content, which can be multi-lined (a litle trick using `gets(\n\n\n)`- where user input won't be assigned to it's variable until three new blank lines have first been submitted). Input is *then* stored in the variable *content* i.e. `content = gets(\n\n\n).chomp`. Finally, a text file is created in the local **/src** directory using the following method/class:
@@ -81,8 +85,10 @@ end
 ```
 **Error-handling:** If the note title is already in use or left blank (which uses an if/else statement and the logical operator `File.exists?(filename) == false && filename != ".txt"`) to search the directory), the app will tell the user that the title is either already in-use or invalid, respectively. This is the first instance of error handling in SuperNotes. 
 
+!['New' code block](./new_code.jpg)
 
-### Feature 2 - Read Your Notes
+
+### Function - Read Your Notes
 *(**read** method defined on line 1 of methods.rb, usage in code block begins on line 55 of supernotes.rb)*
 *(list method, called **instructions**, defined on line 18 of methods.rb, usage in code block begins on lines 56/72/96 of supernote.rb)*
 
@@ -96,8 +102,10 @@ end
 ```
 **Error-handling:** When inputting the note title, the program uses an if/else statement to determine if the note title exists (using `if File.exists?(filename) == true` #code to read). If the user input does not match an existing note title, the user will recieve an error message stating that the note does not exist (i.e `else` #error message)
 
+!['Read' code block](./read_code.jpg)
 
-### Feature 3  - Append Your Notes
+
+### Function  - Append Your Notes
 *(usage in code begins on line 95 of supernotes.rb)*
 
 The third feature was originally supposed to allow the user to fully edit existing notes in-app. But I couldn't figure out how to accomplish this and instead went with the option to simply add to exisiting notes. Supernote allows the user to append notes under the 'Append' option on the main page. Using the same list and input-to-open methods mention previously, the user is given a list of existing notes and can input the title to 'open' its contents, which can then be appened. The program does this using the following code:
@@ -110,8 +118,10 @@ The third feature was originally supposed to allow the user to fully edit existi
  Note that there is note functional way in SuperNotes to edit or change an exisiting text in a note without first deleting the note and then recreating it. 
  **Error-handling:** Same as above.
 
+!['Append' code block](./append_code.jpg)
 
-### Feature 4 - Delete Unwanted Notes
+
+### Function - Delete Unwanted Notes
 *(usage in code begins on line 70 of supernotes.rb)*
 
 The final feature of SuperNote is the ability to list all existing notes, search by name and delete them from the list. This permanantly deletes the notes (as in, the note is removed from the SuperNotes app *and* its associated text file is deleted from the local directory). Again, the user is given a list of existing notes and is prompted for the title of the note they wish to delete (using the same `filename =` method as outlined previously). If the note exists (using the `File.exists?(filename)` class/method as stated previously), the user is promted one last time using a tty-prompt and another case statement to ask: "Are you sure you want to delete this note?". This is an added safety measure to ensure the user won't accidentally delete the wrong note. When the user chooses "Yes", the note is deleted using the class/method `File.delete(filename)` and the message "Note Deleted" is printed in red text to the screen. Here is the functional code, sans fancy UI stuff:
@@ -127,6 +137,15 @@ if File.exists?(filename) == true
          puts pastel.bright_green.bold("\nCancelled.")
       end
 ```
+!['Delete' code block](./delete_code.jpg)
+
+### Additional Functions - Exit and 'Rescue'
+
+The functions are minor, providing a graceful way to exit the program via the final block of the integral case statement (using a simple `break` method), and a failsafe error message should any of the previous error handling methods fail to catch a disgraceful error, respectively.
+
+!['Additonal' code blocks](./exit_and_rescue.jpg)
+
+
 ## Methods for some of the functions stated above:
 
 ![Methods](./methods.jpg)
