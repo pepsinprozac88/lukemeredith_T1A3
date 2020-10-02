@@ -4,13 +4,46 @@
 
 [Github - SuperNotes](https://github.com/pepsinprozac88/lukemeredith_T1A3)
 
-# Software Development Plan
 
-My application, SuperNotes, is a terminal application designed to do three things: take notes, read those note, and delete those notes if necessary. SuperNote takes input from a user in the form of a note title and note content, then opens a text file and saves the user's input (the note heading and content) to the text file along with the date which the note was created. The user can also use SuperNotes to look through a list of their created notes, or search for them by name, and either edit the note or delete the note. Basically, SuperNote is super basic. But it works, and it's super. It will solve all the client's note taking needs; even though there are hundreds of other note-taking apps on the market, you can rest assured that none of them take a note as SUPERbly as SuperNotes! The target audience for this program is anyone who wants to jump in on the fast-paced and always-expanding world of note-taking. From office workers to soccer-mums, if you need to take a note, we got the app for you!
+Welcome to Supernotes!
+
+My application, SuperNotes, is a terminal application designed to take notes, read note, append to notes, and delete those notes if necessary. SuperNote takes input from a user in the form of a note title and note content, then opens a text file and saves the user's input (the note heading and content) to the text file along with the date which the note was created. The user can also use SuperNotes to look through a list of their created notes, or search for them by name, and either edit the note or delete the note. Basically, SuperNote is super basic. But it works, and it's super. It will solve all the client's note taking needs; even though there are hundreds of other note-taking apps on the market, you can rest assured that none of them take a note as SUPERbly as SuperNotes! The target audience for this program is anyone who wants to jump in on the fast-paced and always-expanding world of note-taking. From office workers to soccer-mums, if you need to take a note, we got the app for you!
 
 The app is extrememly user friendly; the UI is quite bland (it's a terminal app, after all...), utilizing only the up/down arrow keys to navigate short menus, and simple, clear instructions on every page and before every menu option, making sure the user is never lost or confused as how to use it. 
 
-I could explain how to use it here, under the Requirement 5 heading as asked, but I feel like the requirement headings are more of a guideline, and it'd be a bit silly as Requirement 10 asks for the same thing, and I don't want to repeat myself. I got things to do. 
+## Using Supernote:
+
+*Note:* Supernotes is a user-friendly application. All instructions are in-app, spelled out clearly in the terminal window for the user's convenience. 
+
+Supernotes main page is simply a title screen with the navigation menu below it. Use the up and down arrow keys to navigate the options and press the 'enter' key to select. The main page looks like this:
+
+![Title Page](./titlepage.jpg)
+
+**User Options:**
+
+***Read*** - This option will list all existing notes and allow you to type in the name of the note you would like to read and press enter. Note that you *can* have spaces in the note title, and you do *not* have to add the .txt file extension at the end of the title; Supernotes automates these process for you by replacing spaces with underscores ('_') and adding the file extension for you!
+
+***New*** - Creates a new note. Follow the instructions on screen. Note that you cannot create a note without a title, or create a note that shares an existing note's title. Your note can also be multi-lined; though pressing the 'enter' key three times without inputting text will end the note and save it to Supernote's 'src' directory in .txt format.
+
+***Delete*** - Use this option to delete an existing notes. Supernotes again gives you a list of all exisiting notes from which you can choose the note you wish to delete by typing in the name of the note (sans the .txt file extension and '_'s). To avoid accidental deletion, the user is asked one last time if they are sure they wish to delete the current file. Note than deleting a note is permanent; deleting notes in-app will also delete the associated .txt file from the 'src' directory.
+
+***Append*** - This feature allows the user to open an exisitng note using the same method as mentioned previously (read a list and tyoe the note name etc.) Once the note is selected, the app prompts the user for additional note text which will be saved *to the end* of the note when the enter key is pressed three times (again allowing multi-lined text to be typed into the command line).
+
+***Exit*** - Closes the Supernotes app, with grace :)
+
+
+**Exporting notes (or, accessing the files at their source):**
+
+If you wish, you can retrieve the actual text file version of your note for use in other software, editing, printing, etc. The note files are created and stored in Supernote's **/src** directory, in *filename*.txt format. Note that if you remove or delete the file directly from the **/src** directory you will no longer be able to access it from within the Supernotes program.
+
+
+**Troublshooting:**
+
+Honestly, there's not much to the Supernotes app; there are no known errors, and all known user-related errors are addressed in app with instructions as to why the user may have recieved said error. If the app does freeze, the user can use Ctr-Z or Ctr-Z to force-close the program, and restart it using the method stated previously. If the issue persists, try uninstalling and reinstalling the program as per the instruction above, or else feel free to contact me with questions or issues through my github page. The link is at the top of the page.
+
+
+
+# Software Development 
 
 
 ## FEATURES OF SUPERNOTES
@@ -29,7 +62,7 @@ followed by a case statement encompassing the control flow of the program and it
 ### Feature 2 - Create New Note
 *(method defined on line 14, usage in code block begins on line 93 of supernote.rb)*
 
-The first and most essential feature of SuperNote is it's ability to create a new note. The program asks for the title and stores it in the variable *filename*. The title can be multiple words and does not need a file extension added as the program does all of this automatically using `filename = gets.chomp.gsub(" ", "_").to_s.downcase + ".txt"`. It alos automatically adds the date of the note's creation to the note using the class/method `Date.today`, then lastly prompts for note content, which can be multilined, as input stored in the variable *content* i.e. `content = gets(\n\n\n).chomp`. A text file is then created in a local directory using the following method/class:
+The first and most essential feature of SuperNote is it's ability to create a new note. The program asks for the title and stores it in the variable *filename*. The title can be multiple words and does not need a file extension added as the program does all of this automatically using `filename = gets.chomp.gsub(" ", "_").to_s.downcase + ".txt"`. It also automatically adds the date of the note's creation to the note using the class/method `Date.today`, then lastly prompts for note content, which can be multi-lined (a litle trick using `gets(\n\n\n)`- where user input won't be assigned to it's variable until three new blank lines have first been submitted). Input is *then* stored in the variable *content* i.e. `content = gets(\n\n\n).chomp`. Finally, a text file is created in the local **/src** directory using the following method/class:
 ```ruby
 def create(filename, content) # Creates a new note, saves the note in .txt format to local directory.
    File.open(filename, "w") do |file|     
@@ -89,64 +122,10 @@ if File.exists?(filename) == true
 
 ## Implementation Plan
 
-Control flow diagram: ![diagram](./docs/diagram.jpg)
+### Control flow diagram: 
 
-As this is a small, one-person terminal app, I designed my implementation plan around a simple to-do list, as follows:
-(Note: tasks are marked as *done* using `X`)
+![diagram](./docs/diagram.jpg)
 
-#### Design:
-- ASCII art heading for title page (possible name: 'SuperNotes' ?) `X`
-- Gem for colourizing terminal text (maybe 'colorize', 'tty-pastel' ?) `X`
-- Gem for arrow key navigation/menus (maybe 'tty-prompt' ?) `X`
-- font styles for menu text `X`
+### Trello Board - project organization
 
-#### App Functions:
-1. **New Note:** *Creates new notes, with a title, from user input*
-   -creating a text file and storing the file in a local SuperNote directory `X`
-   - adding a 'date created' function to each note `X`
-   - enable multiple word note titles (whitespace included) `X`
-   - automate adding the .txt file extension `X`
-   - enable multi-line notes `X`
-2. **Read Note:** *Enable user to read existing notes*
-   - list exisiting notes `X`
-   - choose note to read from the list by typing note title `X`
-   - print note contents to screen `X`
-3. **Delete:**  *Deletes existing notes*
-   - list exisiting notes `X`
-   - choose note to delete from the list by typing note title `X`
-   - add safety feature i.e. a second prompt for certainty before note is deleted `X`
-4. **Append:** *Append to existing note* 
-   - list exisiting notes `X`
-   - choose note to append from a list by typing note title `X`
-   - print existing note contents to screen, then prompt the user for additional input to add to said note `X`
-5. **Exit** *Close the app gracefully*
-   - Keep the app running via control flow (loops?) until such time as the user wishes to exit the app manually `X`
-
-#### Error Handling
-I have ensured the app throws no errors or crashes by using 'if/else' statements and 'case' statements to control *if* the program can perfom a specific action, *else* the user receives a custom error message. I have also wrapped the entire program in a 'rescue' statement as a failsafe. These scenarios are outline below:
-
-1. **New Note**
-- The user cannot create a note without a title, else they recieve a custom error message `X`
-- The user cannot create a note with the same title as an existing note - custom error message `X`
-- The user can *only* create text (.txt) files within the program - coded to be the only possibility `X`
-- The user cannot give the note an invalid title (e.g. a filename which includes whitespace) - coded to be impossible `X` 
-2. **Read Note**
-- The user cannot read files that don't exactly match the user input when prompted for it - custom error message `X`
-- The user cannot read a file that does not exist - custom error message  `X`
-- The user cannot read source code or other important files within the program - coded to be impossible`X`
-3. **Delete**
-- The user cannot delete files that don't exactly match the user input when prompted for it - custom error message  `X`
-- The user cannot delete source code or other important files within the program - coded to be impossible`X`
-- The user cannot delete files that do not exist  - custom error message `X`
-4. **Append**
-- The user cannot append to files that don't exactly match the user input when prompted for it  - custom error message `X`
-- The user cannot append to source code or other important files within the program - coded to be impossible`X`
-- The user cannot append to files that do not exist  - custom error message `X`
-- The append function will not overwrite the existing note, only add to it - coded to be impossible `X`
-5. **Exit**
-- The program will exit gracefully, without error - coded to be the only option `X`
-6. **Menu**
-- The user cannot select an invalid option from the main menu. There will be *no* invalid options to choose from `X`
-- In the extremely unlikely event of user choice not matching the `case` statement that the 'tty-prompt' menu is built upon, the user will recieve a custom error message `X`
-7. **Failsafe 'rescue' Message**
-- In the unlikely event of an exception, the rescue statement will print instructions to the screen asking the user to either restart the program, or else refer to the HELP document in the Supernotes directory on their computer for a possible reinstall. `X`
+[Trello - Termninal App](https://trello.com/b/3HrFlKW0/supernotes-terminal-app)

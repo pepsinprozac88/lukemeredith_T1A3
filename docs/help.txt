@@ -8,7 +8,8 @@ Systewm Requirments:
 
 - Any modern PC at least 5-10 years old
 - Bash shell
-- the ability to read, write and type definietly helps
+- the ability to read, write and type is somewhat helpful
+
 
 SETUP GUIDE
 
@@ -35,4 +36,14 @@ Supernotes main page is simply a title screen with the navigation menu below it.
 *Append* - This feature allows the user to open an exisitng note using the same method as mentioned previously (read a list and tyoe the note name etc.) Once the note is selected, the app prompts the user for additional note text which will be saved *to the end* of the note when the enter key is pressed three times (again allowing multi-lined text to be typed into the command line).
 
 *Exit* - Closes the Supernotes app, with grace :)
+
+
+Exporting notes (or, accessing the files at their source):
+
+If you wish, you can retrieve the actual text file version of your note for use in other software, editing, printing, etc. The note files are created and stored in Supernote's /src directory, in filename.txt format. Note that if you remove or delete the file directly from the /src directory you will no longer be able to access it from within the Supernotes program.
+
+
+Troublshooting: 
+
+Honestly, there's not much to the Supernotes app; there are no known errors, and all known user-related errors are addressed in app with instructions as to why the user may have recieved said error. If the app does freeze, the user can use Ctr-Z or Ctr-Z to force-close the program, and restart it using the method stated previously. If the issue persists, try uninstalling and reinstalling the program as per the instruction above, or else feel free to contact me with questions or issues through my github page. The link is at the top of the page.
 
