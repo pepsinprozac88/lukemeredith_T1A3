@@ -1,4 +1,14 @@
 
+For CLI help, please type (without quotation marks) 'ruby supernotes.rb' then a space before adding one of the following flags:
+
+   -a              list all command line arguments
+   -all            list all command line arguments
+   -h              help
+   -help           help
+   -v              show version information
+   -version        show version information
+
+
 Welcome to SuperNotes!
 
 To get started, first download the supernotes app from GitHub:
@@ -47,4 +57,8 @@ If you wish, you can retrieve the actual text file version of your note for use 
 Troublshooting: 
 
 Honestly, there's not much to the Supernotes app; there are no known errors, and all known user-related errors are addressed in app with instructions as to why the user may have recieved said error. If the app does freeze, the user can use Ctr-Z or Ctr-Z to force-close the program, and restart it using the method stated previously. If the issue persists, try uninstalling and reinstalling the program as per the instruction above, or else feel free to contact me with questions or issues through my GitHub page. The link is at the top of the page.
+
+
+
+
 

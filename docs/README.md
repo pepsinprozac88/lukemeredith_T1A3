@@ -39,18 +39,28 @@ If you wish, you can retrieve the actual text file version of your note for use 
 
 **Troublshooting:**
 
-Honestly, there's not much to the Supernotes app; there are no known errors, and all known user-related errors are addressed in app with instructions as to why the user may have recieved said error. If the app does freeze, the user can use Ctr-Z or Ctr-Z to force-close the program, and restart it using the method stated previously. If the issue persists, try uninstalling and reinstalling the program as per the instruction above, or else feel free to contact me with questions or issues through my github page. The link is at the top of the page.
+Honestly, there's not much to the Supernotes app; there are no known errors, and all known user-related errors are addressed in app with instructions as to why the user may have recieved said error. If the app does freeze, the user can use Ctr-Z or Ctr-C to force-close the program, and restart it using the method stated previously. If the issue persists, try uninstalling and reinstalling the program as per the instruction above, or else feel free to contact me with questions or issues through my GitHub page. The link is at the top of the page.
+
+**ARGV / Command line Arguments**
+
+For CLI help, use the terminal to navigate to the SuperNotes **/src** directory and type the following (without quotation marks): 'ruby supernotes.rb', then a space, before adding one of the following flags:
+
+   -a              list all command line arguments
+   -all            list all command line arguments
+   -h              help
+   -help           help
+   -v              show version information
+   -version        show version information
 
 
 # Software Development 
-
 
 ## FEATURES OF SUPERNOTES
 
 ### Feature 1 - TTY PROMPT arrow-key Menus 
 *(defined on line 23 of supernote.rb)*
 
-Using the ruby gem tty-prompt, Supernote will have a simply UI, utilizing the gem's code in order to add an options menu as a front-page, where the user will be able to choose to read notes, create a new note, delete a note, append an existing note, or else exit the program. the code is as follows:
+Using the ruby gem tty-prompt, Supernote will have a simply UI, utilizing the gem's code in order to add an options menu as a front-page, where the user will be able to choose to read notes, create a new note, delete a note, append an existing note, or else exit the program. The code for the navigation menu is as follows:
 ```ruby
 choose = %w(𝐑ead 𝐍ew 𝐃𝐞𝐥𝐞𝐭𝐞 𝐀𝐩𝐩𝐞𝐧𝐝 𝐄𝐱𝐢𝐭)
 choice = prompt.select("What would you like to do?", choose).to_s

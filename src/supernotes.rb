@@ -1,7 +1,7 @@
-begin # opening for rescue error messasge (Although, there are NO errors.)
 
 require_relative './methods.rb'
 require_relative './title.rb'
+require_relative './help.rb'
 require 'date'
 require 'pastel'
 require 'tty-prompt'
@@ -9,6 +9,10 @@ require 'colorize'
 
 prompt = TTY::Prompt.new(active_color: :yellow)
 pastel = Pastel.new
+
+help()
+
+begin # opening for rescue error messasge (Although, there are NO errors.)
 
 loop do
 
@@ -124,7 +128,7 @@ loop do
    end
 
 rescue 
-   puts "\nError! You broke me! Ahhhh! How did you break me? AHHHHHHHHHHHHH!\n\nTry restarting the program.\nIf that fails, you may have to uninstall/reinstall Supernotes using the Help document.\nYou can find the Help Document in the SuperNotes directory on your computer, or by typing 'ruby help.rb -h' in the command line of your terminal window while inside the SuperNotes '/src' directory.".red
+   puts "\nError! You broke me! Ahhhh! How did you break me? AHHHHHHHHHHHHH!\n\nTry restarting the program.\nIf that fails, you may have to uninstall/reinstall Supernotes using the Help document.\nYou can find the Help Document in the SuperNotes directory on your computer, or by typing 'ruby supernotes.rb -h' in the command line of your terminal window while inside the SuperNotes '/src' directory.".red
    puts "\n"
 end
 

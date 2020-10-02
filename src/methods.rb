@@ -1,3 +1,4 @@
+
 def read(filename)   # Reads back the note to the terminal screen.
    File.open(filename).each do |text|
    puts text
