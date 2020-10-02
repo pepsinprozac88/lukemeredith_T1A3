@@ -51,12 +51,12 @@ Honestly, there's not much to the Supernotes app; there are no known errors, and
 
 For CLI help, use the terminal to navigate to the SuperNotes **/src** directory and type the following (without quotation marks): 'ruby supernotes.rb', then a space, before adding one of the following flags:
 
-'-a' --------list all command line arguments
-'-all' ------list all command line arguments
-'-h' --------help
-'-help' -----help
-'-v' --------show version information
-'-version' --show version information
+- '-a'         list all command line arguments
+- '-all'       list all command line arguments
+- '-h'         help
+- '-help'      help
+- '-v'         show version information
+- '-version'   show version information
 
 ![ARGV](./ARGV_code.jpg)
 
