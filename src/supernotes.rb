@@ -5,6 +5,7 @@ require_relative './title.rb'
 require 'date'
 require 'pastel'
 require 'tty-prompt'
+require 'colorize'
 
 prompt = TTY::Prompt.new(active_color: :yellow)
 pastel = Pastel.new
@@ -62,7 +63,7 @@ loop do
                line()
                back()
             else
-               puts pastel.red.bold("Hey man, so, that note doesn't actually exist...")
+               puts pastel.red.bold("\nHey man, so, that note doesn't actually exist...")
                line()
                back()
             end  
@@ -87,7 +88,7 @@ loop do
                   back()
                end
             else
-               puts pastel.red.bold("Bruh, you can't delete it if it doesn't exist...")
+               puts pastel.red.bold("\nBruh, you can't delete it if it doesn't exist...")
                back()
             end
 
@@ -123,5 +124,7 @@ loop do
    end
 
 rescue 
-   puts "Error! You broke me! Ahhhh! How did you break me? I'm error proof! AHHHHHHHHHHHHH!\nTry restarting the program.\nIf that fails, you may have to uninstall/reinstall Supernotes using the HELP document.\nYou can find this by running 'supernote.rb --help' in the command line,\nor find the pdf document in the Supernotes directory on your computer."
+   puts "\nError! You broke me! Ahhhh! How did you break me? AHHHHHHHHHHHHH!\nTry restarting the program.\nIf that fails, you may have to uninstall/reinstall Supernotes using the HELP document.\nYou can find this in the Supernotes directory on your computer.")
+   puts "\n".red
 end
+
