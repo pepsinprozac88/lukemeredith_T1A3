@@ -1,0 +1,38 @@
+Welcome to SuperNotes!
+
+To get started, first download the supernotes app from GitHub:
+
+https://github.com/pepsinprozac88/lukemeredith_T1A3
+
+Systewm Requirments:
+
+- Any modern PC at least 5-10 years old
+- Bash shell
+- the ability to read, write and type definietly helps
+
+SETUP GUIDE
+
+1. Once downloaded, open your terminal window and navigate to the directory in which Supernote has been stored.
+2. Navigate to the *src* directory.
+3. First we need to install the dependencies (Ruby gems). While inside the *src* directory, run the following command:  bundle install
+4. Once the bundled dependencies are install, you can launch Supernotes! you can do this using the binary file in *src* by typing the following command:  ./supernotes
+5. The app should open right there in your terminal window :)
+*Note:* should you need quick access to this help document, you can read in in the terminal, provided you are in the Supernote *src* directory, by using the following command:  ruby supernoteshelp --help OR ruby supernoteshelp -h
+
+
+Using Supernote:
+
+*Note:* Supernotes is a user friendly application. All instructions are in-app, spelled out clearly in the terminal app for the user's convenience. 
+
+Supernotes main page is simply a title screen with the navigation menu below it. Use the up and down arrow keys to navigate the options and press the 'enter' key to select.
+
+*Read* - This option will list all existing notes and allow you to type in the name of the note you would like to read and press enter. Note that you *can* have spaces in the note title, and you do *not* have to add the .txt file extension at the end of the title; Supernotes automates these process for you by replacing spaces with underscores ('_') and adding the file extension for you!
+
+*New* - Creates a new note. Follow the instructions on screen. Note that you cannot create a note without a title, or create a note that shares an existing note's title. Your note can also be multi-lined; though pressing the 'enter' key three times without inputting text will end the note and save it to Supernote's 'src' directory in .txt format.
+
+*Delete* - Use this option to delete an existing notes. Supernotes again gives you a list of all exisiting notes from which you can choose the note you wish to delete by typing in the name of the note (sans the .txt file extension and '_'s). To avoid accidental deletion, the user is asked one last time if they are sure they wish to delete the current file. Note than deleting a note is permanent; deleting notes in-app will also delete the associated .txt file from the 'src' directory.
+
+*Append* - This feature allows the user to open an exisitng note using the same method as mentioned previously (read a list and tyoe the note name etc.) Once the note is selected, the app prompts the user for additional note text which will be saved *to the end* of the note when the enter key is pressed three times (again allowing multi-lined text to be typed into the command line).
+
+*Exit* - Closes the Supernotes app, with grace :)
+
