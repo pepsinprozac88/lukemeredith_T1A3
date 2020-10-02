@@ -49,7 +49,7 @@ Honestly, there's not much to the Supernotes app; there are no known errors, and
 ## FEATURES OF SUPERNOTES
 
 ### Feature 1 - TTY PROMPT arrow-key Menus 
-*(defined on line 89 of supernote.rb)*
+*(defined on line 23 of supernote.rb)*
 
 Using the ruby gem tty-prompt, Supernote will have a simply UI, utilizing the gem's code in order to add an options menu as a front-page, where the user will be able to choose to read notes, create a new note, delete a note, append an existing note, or else exit the program. the code is as follows:
 ```ruby
@@ -60,7 +60,7 @@ followed by a case statement encompassing the control flow of the program and it
 
 
 ### Feature 2 - Create New Note
-*(method defined on line 14, usage in code block begins on line 93 of supernote.rb)*
+*(method defined on line 7 of methods.rb, usage in code block begins on line 27 of supernotes.rb)*
 
 The first and most essential feature of SuperNote is it's ability to create a new note. The program asks for the title and stores it in the variable *filename*. The title can be multiple words and does not need a file extension added as the program does all of this automatically using `filename = gets.chomp.gsub(" ", "_").to_s.downcase + ".txt"`. It also automatically adds the date of the note's creation to the note using the class/method `Date.today`, then lastly prompts for note content, which can be multi-lined (a litle trick using `gets(\n\n\n)`- where user input won't be assigned to it's variable until three new blank lines have first been submitted). Input is *then* stored in the variable *content* i.e. `content = gets(\n\n\n).chomp`. Finally, a text file is created in the local **/src** directory using the following method/class:
 ```ruby
@@ -74,7 +74,7 @@ end
 
 
 ### Feature 2 - Read Your Notes
-*(**read** method defined on line 8, usage in code block begins on line 121 of supernote.rb)*
+*(**read** method defined on line 1 of methods.rb, usage in code block begins on line 55 of supernotes.rb)*
 *(list method, called **instructions**, defined on line 8, usage in code block begins on line 121 of supernote.rb)*
 
 The second feature is the ability to list and read your notes. Again, the user chooses the option 'Read' from the menu, which lists all available notes with `puts Dir.glob("*.txt")`. The user can then input the name of the note they wish to read - using the same method stated above - which retrieves the note, along with its title and creation date, and prints it all back to the screen. This is accomplished using the method/class/iterator:
@@ -89,7 +89,7 @@ end
 
 
 ### Feature 3  - Append Your Notes
-*(usage in code begins on line 161 of supernote.rb)*
+*(usage in code begins on line 95 of supernotes.rb)*
 
 The third feature was originally supposed to allow the user to fully edit existing notes in-app. But I couldn't figure out how to accomplish this and instead went with the option to simply add to exisiting notes. Supernote allows the user to append notes under the 'Append' option on the main page. Using the same list and input-to-open methods mention previously, the user is given a list of existing notes and can input the title to 'open' its contents, which can then be appened. The program does this using the following code:
 ```ruby
@@ -103,7 +103,7 @@ The third feature was originally supposed to allow the user to fully edit existi
 
 
 ### Feature 4 - Delete Unwanted Notes
-*(usage in code begins on line 137 of supernote.rb)*
+*(usage in code begins on line 70 of supernotes.rb)*
 
 The final feature of SuperNote is the ability to list all existing notes, search by name and delete them from the list. This permanantly deletes the notes (as in, the note is removed from the SuperNotes app *and* its associated text file is deleted from the local directory). Again, the user is given a list of existing notes and is prompted for the title of the note they wish to delete (using the same `filename =` method as outlined previously). If the note exists (using the `File.exists?(filename)` class/method as stated previously), the user is promted one last time using a tty-prompt and another case statement to ask: "Are you sure you want to delete this note?". This is an added safety measure to ensure the user won't accidentally delete the wrong note. When the user chooses "Yes", the note is deleted using the class/method `File.delete(filename)` and the message "Note Deleted" is printed in red text to the screen. Here is the functional code, sans fancy UI stuff:
 ```ruby
@@ -118,7 +118,6 @@ if File.exists?(filename) == true
          puts pastel.bright_green.bold("\nCancelled.")
       end
 ```
-
 
 ## Implementation Plan
 
