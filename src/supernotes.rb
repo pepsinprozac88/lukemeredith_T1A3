@@ -119,12 +119,12 @@ loop do
          break
       
       else
-         puts pastel.red.bold("\nError! You broke me! Ahhhh! How did you break me? I'm error proof! AHHHHHHHHHHHHH!")
+         puts pastel.red.bold("\nError! You broke me! Ahhhh! How did you break me? AHHHHHHHHHHHHH!")
       end
    end
 
 rescue 
-   puts "\nError! You broke me! Ahhhh! How did you break me? AHHHHHHHHHHHHH!\nTry restarting the program.\nIf that fails, you may have to uninstall/reinstall Supernotes using the HELP document.\nYou can find this in the Supernotes directory on your computer.")
-   puts "\n".red
+   puts "\nError! You broke me! Ahhhh! How did you break me? AHHHHHHHHHHHHH!\n\nTry restarting the program.\nIf that fails, you may have to uninstall/reinstall Supernotes using the Help document.\nYou can find the Help Document in the SuperNotes directory on your computer, or by typing 'ruby help.rb -h' in the command line of your terminal window while inside the SuperNotes '/src' directory.".red
+   puts "\n"
 end
 

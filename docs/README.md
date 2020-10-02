@@ -42,7 +42,6 @@ If you wish, you can retrieve the actual text file version of your note for use 
 Honestly, there's not much to the Supernotes app; there are no known errors, and all known user-related errors are addressed in app with instructions as to why the user may have recieved said error. If the app does freeze, the user can use Ctr-Z or Ctr-Z to force-close the program, and restart it using the method stated previously. If the issue persists, try uninstalling and reinstalling the program as per the instruction above, or else feel free to contact me with questions or issues through my github page. The link is at the top of the page.
 
 
-
 # Software Development 
 
 
@@ -118,12 +117,15 @@ if File.exists?(filename) == true
          puts pastel.bright_green.bold("\nCancelled.")
       end
 ```
+## Methods for some of the functions stated above:
+
+![Methods](./methods.jpg)
 
 ## Implementation Plan
 
 ### Control flow diagram: 
 
-![diagram](./diagram.jpg)
+![Diagram](./diagram.jpg)
 
 ### Trello Board - project organization
 
