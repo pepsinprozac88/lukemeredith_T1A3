@@ -5,7 +5,7 @@
 [Github - SuperNotes](https://github.com/pepsinprozac88/lukemeredith_T1A3)
 
 
-Welcome to Supernotes!
+## Welcome to Supernotes!
 
 My application, SuperNotes, is a terminal application designed to take notes, read note, append to notes, and delete those notes if necessary. SuperNote takes input from a user in the form of a note title and note content, then opens a text file and saves the user's input (the note heading and content) to the text file along with the date which the note was created. The user can also use SuperNotes to look through a list of their created notes, or search for them by name, and either edit the note or delete the note. Basically, SuperNote is super basic. But it works, and it's super. It will solve all the client's note taking needs; even though there are hundreds of other note-taking apps on the market, you can rest assured that none of them take a note as SUPERbly as SuperNotes! The target audience for this program is anyone who wants to jump in on the fast-paced and always-expanding world of note-taking. From office workers to soccer-mums, if you need to take a note, we got the app for you!
 
