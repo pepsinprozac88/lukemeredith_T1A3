@@ -123,7 +123,7 @@ if File.exists?(filename) == true
 
 ### Control flow diagram: 
 
-![diagram](./docs/diagram.jpg)
+![diagram](./diagram.jpg)
 
 ### Trello Board - project organization
 
