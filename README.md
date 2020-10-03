@@ -41,7 +41,7 @@ If you wish, you can retrieve the actual text file version of your note for use 
 
 For a comprehensive help document, see 'help.txt' in the SuperNotes **/docs** directory. Honestly though, there's not much help needed with the Supernotes app; there are no known errors, and all known user-related errors are addressed in app with instructions as to why the user may have recieved said error. If the app does freeze, the user can use Ctr-Z or Ctr-C to force-close the program, and restart it using the method stated previously. If the issue persists, try uninstalling and reinstalling the program as per the instruction above, or else feel free to contact me with questions or issues through my GitHub page. The link is at the top of the page.
 
-*Help Document:* [help.txt](./docs/help.txt)
+***Help Document:*** [help.txt](./docs/help.txt)
 
 
 # Software Development 
