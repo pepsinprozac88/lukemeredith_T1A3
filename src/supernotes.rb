@@ -128,7 +128,7 @@ loop do
    end
 
 rescue 
-   puts "\nError! You broke me! Ahhhh! How did you break me? AHHHHHHHHHHHHH!\n\nTry restarting the program.\nIf that fails, you may have to uninstall/reinstall Supernotes using the Help document.\nYou can find the Help Document in the SuperNotes directory on your computer, or by typing 'ruby supernotes.rb -h' in the command line of your terminal window while inside the SuperNotes '/src' directory.".red
+   puts "\nError! You broke me! Ahhhh! How did you break me? AHHHHHHHHHHHHH!\n\nTry restarting the program.\nIf that fails, you may have to uninstall/reinstall Supernotes using the Help document.\nYou can find the Help Document in the SuperNotes '/docs' directory on your computer, or by typing 'ruby supernotes.rb -h' in the command line of your terminal window while inside the SuperNotes '/src' directory.".red
    puts "\n"
 end
 

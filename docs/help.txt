@@ -19,22 +19,22 @@ Systewm Requirments:
 
 - Any modern PC at least 5-10 years old
 - Bash shell
-- the ability to read, write and type is somewhat helpful
+- The ability to read, write and type is somewhat helpful
 
 
 SETUP GUIDE
 
 1. Once downloaded, open your terminal window and navigate to the directory in which Supernote has been stored.
-2. Navigate to the *src* directory.
-3. First we need to install the dependencies (Ruby gems). While inside the *src* directory, run the following command:  bundle install
-4. Once the bundled dependencies are install, you can launch Supernotes! you can do this using the binary file in *src* by typing the following command:  ./supernotes
+2. Navigate to the '/src' directory.
+3. First we need to install the dependencies (Ruby gems). While inside the '/src' directory, run the following command:  'bundle install'
+4. Once the bundled dependencies are install, you can launch Supernotes! you can do this using the binary file in *src* by typing the following command:  './supernotes'
 5. The app should open right there in your terminal window :)
-*Note:* should you need quick access to this help document, you can read in in the terminal, provided you are in the Supernote *src* directory, by using the following command:  ruby supernoteshelp --help OR ruby supernoteshelp -h
+*Note:* should you need quick access to this help document, you can read in in the terminal, provided you are in the Supernote '/src/ directory, by using the following command:  'ruby supernoteshelp --help' OR 'ruby supernoteshelp -h'
 
 
 Using Supernotes:
 
-*Note:* Supernotes is a user friendly application. All instructions are in-app, spelled out clearly in the terminal app for the user's convenience. 
+Note: Supernotes is a user friendly application. All instructions are in-app, spelled out clearly in the terminal app for the user's convenience. 
 
 Supernotes main page is simply a title screen with the navigation menu below it. Use the up and down arrow keys to navigate the options and press the 'enter' key to select.
 
