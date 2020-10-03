@@ -90,7 +90,7 @@ end
 
 ### Function - Read Your Notes
 *(**read** method defined on line 1 of methods.rb, usage in code block begins on line 59 of supernotes.rb)*
-*(list method, called **instructions**, defined on line 18 of methods.rb, usage in code block begins on lines 56/72/96 of supernote.rb)*
+*(list method, called **instructions**, defined on line 18 of methods.rb, usage in code block begins on lines 60/76/100 of supernotes.rb)*
 
 The second feature is the ability to list and read your notes. Again, the user chooses the option 'Read' from the menu, which lists all available notes with `puts Dir.glob("*.txt")`. The user can then input the name of the note they wish to read - using the same method stated above - which retrieves the note, along with its title and creation date, and prints it all back to the screen. This is accomplished using the method/class/iterator:
 ```ruby
