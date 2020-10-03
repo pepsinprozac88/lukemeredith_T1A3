@@ -17,7 +17,7 @@ The app is extrememly user friendly; the UI is quite bland (it's a terminal app,
 
 SuperNotes main page is simply a title screen with the navigation menu below it. Use the up and down arrow keys to navigate the options and press the 'enter' key to select. The main page looks like this:
 
-![Title Page](./titlepage.jpg)
+![Title Page](./docs/titlepage.jpg)
 
 **User Options:**
 
@@ -41,6 +41,8 @@ If you wish, you can retrieve the actual text file version of your note for use 
 
 For a comprehensive help document, see 'help.txt' in the SuperNotes **/docs** directory. Honestly though, there's not much help needed with the Supernotes app; there are no known errors, and all known user-related errors are addressed in app with instructions as to why the user may have recieved said error. If the app does freeze, the user can use Ctr-Z or Ctr-C to force-close the program, and restart it using the method stated previously. If the issue persists, try uninstalling and reinstalling the program as per the instruction above, or else feel free to contact me with questions or issues through my GitHub page. The link is at the top of the page.
 
+*Help Document:* [help.txt](./docs/help.txt)
+
 
 # Software Development 
 
@@ -58,12 +60,12 @@ For CLI help, use the terminal to navigate to the SuperNotes **/src** directory 
 - '-v'         show version information
 - '-version'   show version information
 
-![ARGV](./ARGV_code.jpg)
+![ARGV](./docs/ARGV_code.jpg)
 
 
 ### Gems Used: 
 
-![Gems](./require_gems.jpg)
+![Gems](./docs/require_gems.jpg)
 
 
 ### TTY PROMPT Arrow-key Menus 
@@ -90,7 +92,7 @@ end
 ```
 **Error-handling:** If the note title is already in use or left blank (which uses an if/else statement and the logical operator `File.exists?(filename) == false && filename != ".txt"`) to search the directory), the app will tell the user that the title is either already in-use or invalid, respectively. This is the first instance of error handling in SuperNotes. 
 
-!['New' code block](./new_code.jpg)
+!['New' code block](./docs/new_code.jpg)
 
 
 ### Function - Read Your Notes
@@ -107,7 +109,7 @@ end
 ```
 **Error-handling:** When inputting the note title, the program uses an if/else statement to determine if the note title exists (using `if File.exists?(filename) == true` #code to read). If the user input does not match an existing note title, the user will recieve an error message stating that the note does not exist (i.e `else` #error message)
 
-!['Read' code block](./read_code.jpg)
+!['Read' code block](./docs/read_code.jpg)
 
 
 ### Function - Append Your Notes
@@ -123,7 +125,7 @@ The third feature was originally supposed to allow the user to fully edit existi
  Note that there is note functional way in SuperNotes to edit or change an exisiting text in a note without first deleting the note and then recreating it. 
  **Error-handling:** Same as above.
 
-!['Append' code block](./append_code.jpg)
+!['Append' code block](./docs/append_code.jpg)
 
 
 ### Function - Delete Unwanted Notes
@@ -142,7 +144,7 @@ if File.exists?(filename) == true
          puts pastel.bright_green.bold("\nCancelled.")
       end
 ```
-!['Delete' code block](./delete_code.jpg)
+!['Delete' code block](./docs/delete_code.jpg)
 
 
 ### Additional Functions - Exit and 'Rescue'
@@ -150,18 +152,18 @@ if File.exists?(filename) == true
 
 These functions are minor, providing a graceful way to exit the program via the final block of the integral case statement (using a simple `break` method), and a failsafe error message should any of the previous error handling methods fail to catch a disgraceful error, respectively.
 
-!['Additonal' code blocks](./exit_and_rescue.jpg)
+!['Additonal' code blocks](./docs/exit_and_rescue.jpg)
 
 
 ## Methods for some of the functions stated above:
 
-![Methods](./methods.jpg)
+![Methods](./docs/methods.jpg)
 
 ## Implementation Plan
 
 ### Control flow diagram: 
 
-![Diagram](./diagram.jpg)
+![Diagram](./docs/diagram.jpg)
 
 ### Trello Board - project organization
 
