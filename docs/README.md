@@ -61,6 +61,11 @@ For CLI help, use the terminal to navigate to the SuperNotes **/src** directory 
 ![ARGV](./ARGV_code.jpg)
 
 
+### Gems Used: 
+
+![Gems](./require_gems.jpg)
+
+
 ### TTY PROMPT arrow-key Menus 
 *(defined on line 27 of supernotes.rb)*
 
