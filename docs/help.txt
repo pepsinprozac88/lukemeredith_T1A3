@@ -15,7 +15,7 @@ To get started, first download the supernotes app from GitHub:
 
 https://github.com/pepsinprozac88/lukemeredith_T1A3
 
-Systewm Requirments:
+System Requirments:
 
 - Any modern PC at least 5-10 years old
 - Bash shell
@@ -24,12 +24,12 @@ Systewm Requirments:
 
 SETUP GUIDE
 
-1. Once downloaded, open your terminal window and navigate to the directory in which Supernote has been stored.
+1. Once downloaded, open your terminal window and navigate to the directory in which Supernotes has been stored.
 2. Navigate to the '/src' directory.
 3. First we need to install the dependencies (Ruby gems). While inside the '/src' directory, run the following command:  'bundle install'
-4. Once the bundled dependencies are install, you can launch Supernotes! you can do this using the binary file in *src* by typing the following command:  './supernotes'
+4. Once the bundled dependencies are installed, you can launch Supernotes! You can do this using the binary file in '/src' by typing the following command:  './supernotes'
 5. The app should open right there in your terminal window :)
-*Note:* should you need quick access to this help document, you can read in in the terminal, provided you are in the Supernote '/src/ directory, by using the following command:  'ruby supernoteshelp --help' OR 'ruby supernoteshelp -h'
+Note: should you need quick access to this help document, you can read it in the terminal, provided you are in the Supernote '/src/ directory, by using the following command:  'ruby supernotes.rb -help' OR 'ruby supernotes.rb -h'
 
 
 Using Supernotes:

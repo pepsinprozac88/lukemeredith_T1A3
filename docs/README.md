@@ -25,7 +25,7 @@ SuperNotes main page is simply a title screen with the navigation menu below it.
 
 ***New*** - Creates a new note. Follow the instructions on screen. Note that you cannot create a note without a title, or create a note that shares an existing note's title. Your note can also be multi-lined; though pressing the 'enter' key three times without inputting text will end the note and save it to Supernote's **/src** directory in .txt format.
 
-***Delete*** - Use this option to delete an existing notes. Supernotes again gives you a list of all exisiting notes from which you can choose the note you wish to delete by typing in the name of the note (sans the .txt file extension and '_'s). To avoid accidental deletion, the user is asked one last time if they are sure they wish to delete the current file. Note than deleting a note is permanent; deleting notes in-app will also delete the associated .txt file from the 'src' directory.
+***Delete*** - Use this option to delete an existing notes. Supernotes again gives you a list of all exisiting notes from which you can choose the note you wish to delete by typing in the name of the note (sans the .txt file extension and '_'). To avoid accidental deletion, the user is asked one last time if they are sure they wish to delete the current file. Note than deleting a note is permanent; deleting notes in-app will also delete the associated .txt file from the 'src' directory.
 
 ***Append*** - This feature allows the user to open an exisitng note using the same method as mentioned previously (read a list and tyoe the note name etc.) Once the note is selected, the app prompts the user for additional note text which will be saved *to the end* of the note when the enter key is pressed three times (again allowing multi-lined text to be typed into the command line).
 
@@ -66,7 +66,7 @@ For CLI help, use the terminal to navigate to the SuperNotes **/src** directory 
 ![Gems](./require_gems.jpg)
 
 
-### TTY PROMPT arrow-key Menus 
+### TTY PROMPT Arrow-key Menus 
 *(defined on line 27 of supernotes.rb)*
 
 Using the ruby gem tty-prompt, Supernote will have a simply UI, utilizing the gem's code in order to add an options menu as a front-page, where the user will be able to choose to read notes, create a new note, delete a note, append an existing note, or else exit the program. The code for the navigation menu is as follows:
